@@ -1,5 +1,6 @@
 @import './base.css';
 @import '../../node_modules/tailwindcss';
+@import 'primeicons/primeicons.css';
 
 #app {
   padding: 1rem;

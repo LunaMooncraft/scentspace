@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AddPerfume from '@/components/AddPerfume.vue';
 import Notes from '@/components/Notes.vue';
 import Perfumes from '@/components/Perfumes.vue';
 </script>
@@ -16,6 +17,7 @@ import Perfumes from '@/components/Perfumes.vue';
     </div>
 
     <div class="flex flex-col">
+      <AddPerfume />
       <div class="mb-4">
         <Notes />
       </div>
