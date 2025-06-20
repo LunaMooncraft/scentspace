@@ -16,9 +16,7 @@ interface Perfume {
 }
 
 interface Note {
-  note: {
-    name: string;
-  };
+  name: string;
   type: string;
 }
 
@@ -45,17 +43,13 @@ const fetchPerfumes = async () => {
     toast.add({ severity: 'error', summary: 'Error', detail: error.message, life: 300000 });
   }
 
-  const flattenedPerfumeData = perfumeData.map((perfume: Perfume) => ({
+  perfumes.value = (perfumeData as unknown as Perfume[]).map((perfume: Perfume) => ({
     ...perfume,
     notes: perfume.notes.map((item: Note) => ({
-      name: item.note.name,
+      name: item.name,
       type: item.type
     }))
   }));
-
-  //console.log('Flattened perfumes:', flattenedPerfumeData);
-
-  perfumes.value = flattenedPerfumeData;
 };
 
 // Subscribe to realtime changes
