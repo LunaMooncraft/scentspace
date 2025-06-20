@@ -39,7 +39,7 @@ export default ts.config(
       },
       globals: {
         ...globals.browser,
-      }
+      },
     },
     plugins: { eslint, stylistic },
     rules: customRules,

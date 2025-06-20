@@ -4,7 +4,7 @@ import Perfumes from '@/components/Perfumes.vue';
 </script>
 
 <template>
-  <header>
+  <main>
     <div class="flex gap-3 items-center">
       <img
         class="logo"
@@ -14,9 +14,7 @@ import Perfumes from '@/components/Perfumes.vue';
       >
       <p>ScentSpace</p>
     </div>
-  </header>
 
-  <main>
     <div class="flex flex-col">
       <div class="mb-4">
         <Notes />
