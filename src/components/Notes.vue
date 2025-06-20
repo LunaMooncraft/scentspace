@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import {onMounted, ref} from 'vue';
 import {supabase} from '@/supabaseClient.ts';
+import {useToast} from 'primevue/usetoast';
+
+const toast = useToast();
 
 onMounted(() => {
   fetchNotes();
@@ -13,7 +16,9 @@ const fetchNotes = async () => {
       .from('notes')
       .select('*');
 
-  if (error) console.error(error.message);
+  if (error) {
+    toast.add({ severity: 'error', summary: 'Error', detail: `${error.message}`, life: 3000 });
+  }
 
   notes.value = ingredientsData;
 };
@@ -49,4 +54,5 @@ const fetchNotes = async () => {
       header="User-friendly Subcategory"
     />
   </DataTable>
+  <Toast />
 </template>
