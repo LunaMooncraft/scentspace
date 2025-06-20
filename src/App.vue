@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Notes from '@/components/Notes.vue';
+import Perfumes from '@/components/Perfumes.vue';
 </script>
 
 <template>
@@ -10,8 +12,13 @@
   </header>
 
   <main>
-    <div class="flex justify-center">
-      <Button label="Test" />
+    <div class="flex flex-col">
+      <div class="mb-4">
+        <Notes />
+      </div>
+      <div>
+        <Perfumes />
+      </div>
     </div>
   </main>
 </template>
