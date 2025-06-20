@@ -5,10 +5,16 @@ import vueParser from 'vue-eslint-parser';
 import tsParser from '@typescript-eslint/parser';
 
 const customRules = {
+  // TypeScript
   '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+  '@typescript-eslint/no-explicit-any': 'warn',
+  // TypeScript
   'vue/attribute-hyphenation': 'off',
   'vue/multi-word-component-names': 'off',
-  'no-console': ['warn', { allow: ['info', 'warn', 'error'] }]
+  'vue/no-mutating-props': 'error',
+  'vue/no-v-html': 'warn',
+  // Generic
+  'no-console': ['warn', { allow: ['info', 'warn', 'error'] }],
 };
 
 export default ts.config(
