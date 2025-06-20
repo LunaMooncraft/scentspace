@@ -2,7 +2,9 @@
 import { onMounted, onUnmounted, ref } from 'vue';
 import { supabase } from '@/supabaseClient.ts';
 import type { RealtimeChannel, RealtimePostgresChangesPayload } from '@supabase/supabase-js';
+import {useToast} from 'primevue/usetoast';
 
+const toast = useToast();
 interface Perfume {
   id: number;
   name: string;
@@ -35,7 +37,9 @@ const fetchPerfumes = async () => {
       )
     `);
 
-  if (error) console.error(error.message);
+  if (error) {
+    toast.add({ severity: 'error', summary: 'Error', detail: error.message, life: 300000 });
+  }
 
   const flattenedPerfumeData = perfumeData.map((perfume: Perfume[]) => ({
     ...perfume,
@@ -45,7 +49,7 @@ const fetchPerfumes = async () => {
     }))
   }));
 
-  console.info('Flattened perfumes:', flattenedPerfumeData);
+  //console.log('Flattened perfumes:', flattenedPerfumeData);
 
   perfumes.value = flattenedPerfumeData;
 };
@@ -63,7 +67,7 @@ const subscribeToPerfumes = () => {
         table: 'perfumes'
       },
       (payload: RealtimePostgresChangesPayload<Perfume>) => {
-        console.info('Realtime change received:', payload.eventType);
+        toast.add({ severity: 'info', summary: 'Info', detail: `Realtime change received:', ${payload.eventType}`, life: 3000 });
         fetchPerfumes();
       }
   ).subscribe();
@@ -106,4 +110,5 @@ onUnmounted(() => {
       header="Concentration"
     />
   </DataTable>
+  <Toast />
 </template>
