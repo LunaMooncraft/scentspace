@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {onMounted, ref} from 'vue';
-import {supabase} from '@/supabaseClient.ts';
-import {useToast} from 'primevue/usetoast';
+import { onMounted, ref } from 'vue';
+import { supabase } from '@/supabaseClient.ts';
+import { useToast } from 'primevue/usetoast';
 
 const toast = useToast();
 
@@ -12,7 +12,7 @@ onMounted(() => {
 const notes = ref([]);
 
 const fetchNotes = async () => {
-  let {data: ingredientsData, error} = await supabase
+  let { data: ingredientsData, error } = await supabase
       .from('notes')
       .select('*');
 

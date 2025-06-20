@@ -2,7 +2,7 @@
 import { onMounted, onUnmounted, ref } from 'vue';
 import { supabase } from '@/supabaseClient.ts';
 import type { RealtimeChannel, RealtimePostgresChangesPayload } from '@supabase/supabase-js';
-import {useToast} from 'primevue/usetoast';
+import { useToast } from 'primevue/usetoast';
 
 const toast = useToast();
 interface Perfume {
@@ -12,10 +12,14 @@ interface Perfume {
     name: string;
   };
   concentration: string;
-  notes: {
+  notes: Note[]
+}
+
+interface Note {
+  note: {
     name: string;
-    type: string;
-  }[];
+  };
+  type: string;
 }
 
 const perfumes = ref<Perfume[]>([]);
@@ -41,9 +45,9 @@ const fetchPerfumes = async () => {
     toast.add({ severity: 'error', summary: 'Error', detail: error.message, life: 300000 });
   }
 
-  const flattenedPerfumeData = perfumeData.map((perfume: Perfume[]) => ({
+  const flattenedPerfumeData = perfumeData.map((perfume: Perfume) => ({
     ...perfume,
-    notes: perfume.notes.map((item) => ({
+    notes: perfume.notes.map((item: Note) => ({
       name: item.note.name,
       type: item.type
     }))
