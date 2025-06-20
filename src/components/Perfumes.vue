@@ -85,10 +85,25 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <DataTable :value="perfumes" table-style="min-width: 50rem">
-    <Column field="id" header="ID" />
-    <Column field="name" header="Name" />
-    <Column field="brand.name" header="Brand" />
-    <Column field="concentration" header="Concentration" />
+  <DataTable
+    :value="perfumes"
+    table-style="min-width: 50rem"
+  >
+    <Column
+      field="id"
+      header="ID"
+    />
+    <Column
+      field="name"
+      header="Name"
+    />
+    <Column
+      field="brand.name"
+      header="Brand"
+    />
+    <Column
+      field="concentration"
+      header="Concentration"
+    />
   </DataTable>
 </template>

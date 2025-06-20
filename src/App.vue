@@ -6,7 +6,12 @@ import Perfumes from '@/components/Perfumes.vue';
 <template>
   <header>
     <div class="flex gap-3 items-center">
-      <img class="logo" src="./assets/logo.svg" width="28" height="28" />
+      <img
+        class="logo"
+        src="./assets/logo.svg"
+        width="28"
+        height="28"
+      >
       <p>ScentSpace</p>
     </div>
   </header>

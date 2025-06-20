@@ -1,6 +1,6 @@
 # scentspace
 
-Built with Vue3, Vite, Pinia and ❤️
+Built with Vue3, Vite, Pinia, Supabase and ❤️
 
 ## Type Support for `.vue` Imports in TS
 
@@ -33,4 +33,11 @@ npm run lint:fix
 
 ```sh
 npm run build
+```
+
+### create `.env` with supabase credentials
+
+```dotenv
+VITE_SUPABASE_URL=https://[project-id].supabase.co
+VITE_SUPABASE_ANON_KEY=[anon-key]
 ```

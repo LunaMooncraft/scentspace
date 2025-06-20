@@ -20,12 +20,33 @@ const fetchNotes = async () => {
 </script>
 
 <template>
-  <DataTable :value="notes" table-style="min-width: 50rem">
-    <Column field="id" header="ID"/>
-    <Column field="name" header="Name"/>
-    <Column field="category" header="Fragrance Wheel Category"/>
-    <Column field="subcategory" header="Fragrance Wheel Subcategory"/>
-    <Column field="user_category" header="User-friendly Category"/>
-    <Column field="user_subcategory" header="User-friendly Subcategory"/>
+  <DataTable
+    :value="notes"
+    table-style="min-width: 50rem"
+  >
+    <Column
+      field="id"
+      header="ID"
+    />
+    <Column
+      field="name"
+      header="Name"
+    />
+    <Column
+      field="category"
+      header="Fragrance Wheel Category"
+    />
+    <Column
+      field="subcategory"
+      header="Fragrance Wheel Subcategory"
+    />
+    <Column
+      field="user_category"
+      header="User-friendly Category"
+    />
+    <Column
+      field="user_subcategory"
+      header="User-friendly Subcategory"
+    />
   </DataTable>
 </template>
