@@ -3,17 +3,14 @@
 
 <template>
   <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="40"
-      height="40"
-    >
+    <div class="flex gap-3 items-center">
+      <img class="logo" src="./assets/logo.svg" width="28" height="28" />
+      <p>ScentSpace</p>
+    </div>
   </header>
 
   <main>
-    <div class="card flex justify-center">
+    <div class="flex justify-center">
       <Button label="Test" />
     </div>
   </main>
